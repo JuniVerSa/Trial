@@ -105,8 +105,8 @@
             // }
       *  __fully lazy instantiation__:
       
-           // public sealed class Singleton
-           // {
+            // public sealed class Singleton
+            // {
                   // private Singleton()
                   // {
                   // }
@@ -123,6 +123,6 @@
 
                          // internal static readonly Singleton instance = new Singleton();
                   // }
-           // } 
+            // } 
       
       
