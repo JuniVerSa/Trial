@@ -24,7 +24,7 @@
                      // }
                // }
             // }
-      *   __simple thread-safety__
+      * __simple thread-safety__:
            
           // public sealed class Singleton
           // {
