@@ -26,8 +26,8 @@
             // }
       * __simple thread-safety__:
            
-           // public sealed class Singleton
-           // {
+             // public sealed class Singleton
+             // {
                  // private static Singleton instance = null;
                  // private static readonly object padlock = new object();
 
