@@ -124,7 +124,7 @@
                           internal static readonly Singleton instance = new Singleton();
                    }
              } 
-      * __ using .NET 4's Lazy<T> type__:
+      * __using .NET 4's Lazy<T> type__:
       
              public sealed class Singleton
              {
