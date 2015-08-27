@@ -26,56 +26,56 @@
             // }
       * __simple thread-safety__:
            
-             // public sealed class Singleton
-             // {
-                   // private static Singleton instance = null;
-                   // private static readonly object padlock = new object();
+            // public sealed class Singleton
+            // {
+                  // private static Singleton instance = null;
+                  // private static readonly object padlock = new object();
 
-                   // Singleton()
-                   // {
-                   // }
+                  // Singleton()
+                  // {
+                  // }
 
-                   // public static Singleton Instance
-                   // {
-                          // get
-                          // {
-                                // lock (padlock)
-                                // {
-                                       // if (instance == null)
-                                       // {
-                                              // instance = new Singleton();
+                  // public static Singleton Instance
+                  // {
+                         // get
+                         // {
+                               // lock (padlock)
+                               // {
+                                      // if (instance == null)
+                                      // {
+                                             // instance = new Singleton();
                                        // }
-                                       // return instance;
-                                // }
-                          // }
-                   // }
-             // }
+                                      // return instance;
+                               // }
+                         // }
+                  // }
+            // }
       * __thread-safety using double-check locking__:
       
-              // public sealed class Singleton
-              // {
-              // private static Singleton instance = null;
-              // private static readonly object padlock = new object();
+            // public sealed class Singleton
+            // {
+                  // private static Singleton instance = null;
+                  // private static readonly object padlock = new object();
 
-    Singleton()
-    {
-    }
+                  // Singleton()
+                  // {
+                  // }
 
-    public static Singleton Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                    {
-                        instance = new Singleton();
-                    }
-                }
-            }
-            return instance;
-        }
-    }
-}
+                  // public static Singleton Instance
+                  // {
+                         // get
+                         // {
+                               // if (instance == null)
+                               // {
+                                     // lock (padlock)
+                                     // {
+                                          // if (instance == null)
+                                          // {
+                                                 // instance = new Singleton();
+                                          // }
+                                     //  }
+                               // }
+                               // return instance;
+                         // }
+                  // }
+            // }
