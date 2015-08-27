@@ -4,126 +4,126 @@
   *   Възможни имплементации
       *   __not thread-safe__:
         
-            // public sealed class Singleton
-            // {
-               // private static Singleton instance=null;
+             public sealed class Singleton
+             {
+                private static Singleton instance=null;
 
-               // private Singleton()
-               // {
-               // }
+                private Singleton()
+                {
+                }
 
-               // public static Singleton Instance
-               // {
-                     // get
-                     // {
-                           // if (instance==null)
-                           // {
-                                 // instance = new Singleton();
-                           // }
-                           // return instance;
-                     // }
-               // }
-            // }
+                public static Singleton Instance
+                {
+                      get
+                      {
+                            if (instance==null)
+                            {
+                                  instance = new Singleton();
+                            }
+                            return instance;
+                      }
+                }
+             }
       * __simple thread-safety__:
            
-            // public sealed class Singleton
-            // {
-                  // private static Singleton instance = null;
-                  // private static readonly object padlock = new object();
+             public sealed class Singleton
+             {
+                   private static Singleton instance = null;
+                   private static readonly object padlock = new object();
 
-                  // Singleton()
-                  // {
-                  // }
+                   Singleton()
+                   {
+                   }
 
-                  // public static Singleton Instance
-                  // {
-                         // get
-                         // {
-                               // lock (padlock)
-                               // {
-                                      // if (instance == null)
-                                      // {
-                                             // instance = new Singleton();
-                                       // }
-                                      // return instance;
-                               // }
-                         // }
-                  // }
-            // }
+                   public static Singleton Instance
+                   {
+                          get
+                          {
+                                lock (padlock)
+                                {
+                                       if (instance == null)
+                                       {
+                                              instance = new Singleton();
+                                        }
+                                       return instance;
+                                }
+                          }
+                   }
+             }
       * __thread-safety using double-check locking__:
       
-            // public sealed class Singleton
-            // {
-                  // private static Singleton instance = null;
-                  // private static readonly object padlock = new object();
+             public sealed class Singleton
+             {
+                   private static Singleton instance = null;
+                   private static readonly object padlock = new object();
 
-                  // Singleton()
-                  // {
-                  // }
+                   Singleton()
+                   {
+                   }
 
-                  // public static Singleton Instance
-                  // {
-                         // get
-                         // {
-                               // if (instance == null)
-                               // {
-                                     // lock (padlock)
-                                     // {
-                                          // if (instance == null)
-                                          // {
-                                                 // instance = new Singleton();
-                                          // }
-                                     // }
-                               // }
-                               // return instance;
-                         // }
-                  // }
-            // }
+                   public static Singleton Instance
+                   {
+                          get
+                          {
+                                if (instance == null)
+                                {
+                                      lock (padlock)
+                                      {
+                                           if (instance == null)
+                                           {
+                                                  instance = new Singleton();
+                                           }
+                                      }
+                                }
+                                return instance;
+                          }
+                   }
+             }
       *  __thread-safe without using locks__:
      
-            // public sealed class Singleton
-            // {
-                  // private static readonly Singleton instance = new Singleton();
+             public sealed class Singleton
+             {
+                   private static readonly Singleton instance = new Singleton();
 
-                  // Explicit static constructor to tell C# compiler
-                  // not to mark type as beforefieldinit
-                  // static Singleton()
-                  // {
-                  // }
+                   // Explicit static constructor to tell C# compiler
+                   // not to mark type as beforefieldinit
+                   static Singleton()
+                   {
+                   }
 
-                  // private Singleton()
-                  // {
-                  // }
+                   private Singleton()
+                   {
+                   }
 
-                  // public static Singleton Instance
-                  // {
-                        // get
-                        // {
-                              // return instance;
-                        // }
-                  // }
-            // }
+                   public static Singleton Instance
+                   {
+                         get
+                         {
+                               return instance;
+                         }
+                   }
+             }
       *  __fully lazy instantiation__:
       
-            // public sealed class Singleton
-            // {
-                  // private Singleton()
-                  // {
-                  // }
+             public sealed class Singleton
+             {
+                   private Singleton()
+                   {
+                   }
 
-                  // public static Singleton Instance { get { return Nested.instance; } }
+                   public static Singleton Instance { get { return Nested.instance; } }
         
-                  // private class Nested
-                  // {
-                         // Explicit static constructor to tell C# compiler
-                         // not to mark type as beforefieldinit
-                         // static Nested()
-                         // {
-                         // }
+                   private class Nested
+                   {
+                          // Explicit static constructor to tell C# compiler
+                          // not to mark type as beforefieldinit
+                          static Nested()
+                          {
+                          }
 
-                         // internal static readonly Singleton instance = new Singleton();
-                  // }
-            // } 
+                          internal static readonly Singleton instance = new Singleton();
+                 }
+             } 
       * __ using .NET 4's Lazy<T> type__:
       
              public sealed class Singleton
