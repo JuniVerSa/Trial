@@ -44,7 +44,7 @@
                                        if (instance == null)
                                        {
                                               instance = new Singleton();
-                                        }
+                                       }
                                        return instance;
                                 }
                           }
@@ -122,7 +122,7 @@
                           }
 
                           internal static readonly Singleton instance = new Singleton();
-                 }
+                   }
              } 
       * __ using .NET 4's Lazy<T> type__:
       
@@ -137,3 +137,5 @@
                  {
                  }
              }
+  *   Базовата имплементация (__not thread safe__) не трябва да се използва в мнгонишкови среди (напр.ASP.NET). Singleton нарушава един от SOLID принципите (SRP), защото класът изпълнява повече от една задача едновременно и освен това води до силна връзка между свързаните класове (tight coupling). Singleton шаблоните са трудни за тестване.
+  *   Моделите: The Abstract Factory, Builder, и Prototype могат да използват Singleton при тяхното изпълнение. Facade и State шаблоните също могат да използват Singleton.
