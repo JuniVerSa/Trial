@@ -51,10 +51,11 @@
                    // }
              // }
       * __thread-safety using double-check locking__:
-             // public sealed class Singleton
-             // {
-             // private static Singleton instance = null;
-             // private static readonly object padlock = new object();
+      
+              // public sealed class Singleton
+              // {
+              // private static Singleton instance = null;
+              // private static readonly object padlock = new object();
 
     Singleton()
     {
