@@ -50,7 +50,7 @@
                           // }
                    // }
              // }
-     *   __thread-safety using double-check locking__:
+      * __thread-safety using double-check locking__:
            // public sealed class Singleton
            // {
            // private static Singleton instance = null;
