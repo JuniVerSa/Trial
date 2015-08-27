@@ -3,23 +3,23 @@
   *   Singelton шаблонът се изпълнява, като се прави клас с метод, който прави нова инстанция на класа, ако не съществува. Ако инстанцията съществува, просто връща референцията на този обект. За да е сигурно, че обектът не може да бъде инстанциран по друг начин, конструкторът се прави частен. Singelton шаблонът трябва да бъде внимателно конструиран в многонишковите апликации. Ако две нишки стигнат до създаването на инстанция по едно и също време, е възможно да се създадат две инстанции на класа, което нарушава замисъла на Singelton шаблона. 
   *   Възможни имплементации
       *   При еднонишково програмиране
-         public sealed class Singleton
-{
-    private static Singleton instance=null;
+   //public sealed class Singleton
+   //{
+   // private static Singleton instance=null;
 
-    private Singleton()
-    {
-    }
+   // private Singleton()
+   // {
+   // }
 
-    public static Singleton Instance
-    {
-        get
-        {
-            if (instance==null)
-            {
-                instance = new Singleton();
-            }
-            return instance;
-        }
-    }
-}
+    //public static Singleton Instance
+    //{
+        //get
+        //{
+           //if (instance==null)
+            //{
+                //instance = new Singleton();
+            //}
+            //return instance;
+       //}
+    //}
+//}
